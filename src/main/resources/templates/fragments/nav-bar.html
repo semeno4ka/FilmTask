@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="top-navigation-bar">
+        <div class="w3-top">
+            <div class="w3-bar w3-black w3-card">
+                <a th:href="@{/films/list}" class="w3-bar-item w3-button w3-padding-large">List</a>
+                <a th:href="@{/films/create}" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Create</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

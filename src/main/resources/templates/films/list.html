@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<link rel="stylesheet" th:href="@{/css/w3.css}"/>
+<title>Kicchi Film-List</title>
+</head>
+<body>
+<div th:replace="/fragments/nav-bar :: top-navigation-bar"></div>
+
+<h1 class="w3-red" style="margin-top: 80px; padding-left: 40px">Kicchi Favourite Films</h1>
+
+<table class="w3-table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Year</th>
+        <th scope="col">Last Watch Date</th>
+        <th scope="col">Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="film : ${films}" >
+        <td th:text="${film.name}"></td>
+        <td th:text="${film.year}"></td>
+        <td th:text="${film.lastWatchDate}"></td>
+        <td th:text="${film.genre}"></td>
+        <td class="actions">
+            <a th:href="@{/films/update/{id}(id=${film.id})}"><button type="button" class="w3-button w3-green">Update</button></a>
+            <a th:href="@{/films/delete/{id}(id=${film.id})}"><button type="button" class="w3-button w3-red">Delete</button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

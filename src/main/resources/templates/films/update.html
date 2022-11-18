@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" th:href="@{/css/w3.css}"/>
+    <title>Kicchi Film-Update</title>
+</head>
+<body class="w3-padding-24">
+
+<div th:replace="/fragments/nav-bar :: top-navigation-bar"></div>
+
+<div style="padding-left: 40px">
+    <h1 class="w3-red" style="margin-top: 80px">Update Film</h1>
+
+    <form th:action="@{/films/update}" method="post" th:object="${film}">
+
+        <div class="w3-container w3-padding-24">
+            <input type="text" th:hidden="hidden" th:field="*{id}">
+            <div class="w3-row">
+                <div class="w3-half">
+                    Name:
+                </div>
+                <div class="w3-half">
+                    <input class="form-control" id="name" placeholder="name" th:field="*{name}" type="text" >
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-half">
+                    Year:
+                </div>
+                <div class="w3-half">
+                    <input class="form-control" id="year" placeholder="year" th:field="*{year}" type="number" >
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-half">
+                    Last Watch Date:
+                </div>
+                <div class="w3-half">
+                    <input class="form-control" id="lastWatchDate" placeholder="lastWatchDate" th:field="*{lastWatchDate}" type="date" >
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="w3-half">
+                    Genre:
+                </div>
+                <div class="w3-half">
+                    <select th:field="*{genre}">
+                        <option th:each="eachGenre : ${genres}" th:value="${eachGenre}" th:text="${eachGenre}"></option> >
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="w3-button w3-gray w3-hover-border-black">Update</button>
+    </form>
+</div>
+
+
+</body>
+</html>
